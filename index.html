@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Conheça nossa empresa, nossos serviços e entre em contato.">
+  <title>Sua Empresa | Site Oficial</title>
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --surface: #121a2e;
+      --primary: #6d5dfc;
+      --accent: #38d9c5;
+      --text: #f7f8ff;
+      --muted: #a9b2c9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11, 16, 32, .92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #ffffff12;
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .links a {
+      color: var(--muted);
+      font-size: .94rem;
+      transition: color .2s;
+    }
+
+    .links a:hover { color: var(--accent); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 21px;
+      border-radius: 9px;
+      background: var(--primary);
+      color: white;
+      font-weight: 700;
+      transition: transform .2s, opacity .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: .92;
+    }
+
+    .hero {
+      padding: 110px 0 100px;
+      background:
+        radial-gradient(ellipse at 80% 30%, #6d5dfc30, transparent 42%),
+        radial-gradient(ellipse at 15% 80%, #38d9c51a, transparent 40%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border: 1px solid #38d9c555;
+      border-radius: 30px;
+      color: var(--accent);
+      font-size: .82rem;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, var(--accent), #9b91ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p, .section-intro {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 590px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button-outline {
+      border: 1px solid #ffffff30;
+      background: transparent;
+    }
+
+    .visual {
+      min-height: 350px;
+      display: grid;
+      place-items: center;
+      border-radius: 28px;
+      border: 1px solid #ffffff15;
+      background: linear-gradient(145deg, #1b2540, #101629);
+      box-shadow: 0 30px 90px #00000035;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visual::before, .visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+    }
+
+    .visual::before {
+      width: 220px;
+      height: 220px;
+      background: #6d5dfc55;
+      top: -50px;
+      right: -30px;
+    }
+
+    .visual::after {
+      width: 180px;
+      height: 180px;
+      background: #38d9c533;
+      bottom: -40px;
+      left: -30px;
+    }
+
+    .visual-content {
+      z-index: 1;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .visual-icon {
+      font-size: 5rem;
+      margin-bottom: 15px;
+    }
+
+    .visual-content h2 { font-size: 1.7rem; }
+    .visual-content p { color: var(--muted); margin-top: 8px; }
+
+    section { padding: 85px 0; }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    .section-intro { margin-bottom: 42px; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid #ffffff12;
+      border-radius: 17px;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #6d5dfc88;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #6d5dfc25;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .card h3 { margin-bottom: 10px; }
+    .card p { color: var(--muted); }
+
+    .about {
+      background: #ffffff05;
+      border-top: 1px solid #ffffff0b;
+      border-bottom: 1px solid #ffffff0b;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-panel {
+      padding: 35px;
+      border-radius: 20px;
+      background: linear-gradient(140deg, #6d5dfc20, #38d9c510);
+      border: 1px solid #ffffff12;
+    }
+
+    .about-panel p {
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .contact-box {
+      padding: 42px;
+      border-radius: 22px;
+      background: linear-gradient(120deg, #6d5dfc25, #38d9c510);
+      border: 1px solid #ffffff16;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid #ffffff12;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid, .about-grid { grid-template-columns: 1fr; }
+      .hero { padding: 75px 0; }
+      .visual { min-height: 280px; }
+      .cards { grid-template-columns: 1fr; }
+      .contact-box { flex-direction: column; align-items: flex-start; }
+      .links { gap: 12px; }
+      .links a { font-size: .82rem; }
+      .links .button { padding: 9px 12px; }
+    }
+
+    @media (max-width: 480px) {
+      nav { min-height: 68px; }
+      .logo { font-size: 1rem; }
+      .links { gap: 10px; }
+      .links a:nth-child(2) { display: none; }
+      .links .button { font-size: .8rem; }
+      h1 { letter-spacing: -1px; }
+      .contact-box, .about-panel { padding: 25px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <!-- ALTERE AQUI O NOME DA EMPRESA -->
+      <a class="logo" href="#inicio">SUA<span>EMPRESA</span></a>
+
+      <div class="links">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato" class="button">Contato</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">SEJA BEM-VINDO(A)</span>
+          <h1>Soluções que fazem a <span>diferença.</span></h1>
+          <p>
+            Conheça nossa empresa e descubra como podemos ajudar você.
+            Compromisso, qualidade e dedicação em cada atendimento.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contato" class="button">Fale conosco ↗</a>
+            <a href="#sobre" class="button button-outline">Conheça a empresa</a>
+          </div>
+        </div>
+
+        <div class="visual">
+          <div class="visual-content">
+            <div class="visual-icon">✦</div>
+            <h2>Excelência em cada detalhe</h2>
+            <p>Seu próximo passo começa aqui.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="container">
+        <h2 class="section-title">O que oferecemos</h2>
+        <p class="section-intro">
+          Soluções pensadas para atender às suas necessidades.
+          Personalize esta seção com os serviços reais da sua empresa.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">✧</div>
+            <h3>Qualidade</h3>
+            <p>Trabalhamos para oferecer uma experiência positiva em cada etapa.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">◈</div>
+            <h3>Compromisso</h3>
+            <p>Atendimento atencioso e dedicação para buscar bons resultados.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">➜</div>
+            <h3>Atendimento</h3>
+            <p>Entre em contato para conhecer nossas soluções e tirar suas dúvidas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="sobre">
+      <div class="container about-grid">
+        <div>
+          <span class="eyebrow">QUEM SOMOS</span>
+          <h2 class="section-title">Uma empresa focada em você.</h2>
+          <p class="section-intro">
+            Nosso objetivo é oferecer soluções com atenção, responsabilidade
+            e qualidade. Entre em contato para saber mais sobre nossa história,
+            nossa equipe e o que podemos fazer por você.
+          </p>
+          <a href="#contato" class="button">Entre em contato</a>
+        </div>
+
+        <div class="about-panel">
+          <h3>Dados da empresa</h3>
+          <p><strong>CNPJ:</strong> 64.715.804/0001-50</p>
+          <p><strong>Razão social:</strong> A confirmar</p>
+          <p><strong>Nome fantasia:</strong> A confirmar</p>
+          <p><strong>Área de atuação:</strong> A confirmar</p>
+          <p>Atualize os dados após consultar o cadastro oficial.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2 class="section-title">Vamos conversar?</h2>
+            <p>Entre em contato e conheça melhor nossas soluções.</p>
+          </div>
+
+          <!-- SUBSTITUA pelo link real do WhatsApp da empresa -->
+          <a
+            class="button"
+            href="https://wa.me/55"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Falar pelo WhatsApp ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <span>© <span id="year"></span> Sua Empresa. Todos os direitos reservados.</span>
+      <span>CNPJ: 64.715.804/0001-50</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
